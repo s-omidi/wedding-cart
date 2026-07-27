@@ -1,0 +1,822 @@
+/**
+FONTS
+*/
+@font-face {
+  font-family: "tanha";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/tanha/Tanha.eot");
+  src:
+    url("../fonts/tanha/Tanha.eot?#iefix") format("embedded-opentype"),
+    /* IE6-8 */ url("../fonts/tanha/Tanha.woff") format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url("../fonts/tanha/Tanha.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: "tanha";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/tanha/Tanha.eot");
+  src:
+    url("../fonts/tanha/Tanha.eot?#iefix") format("embedded-opentype"),
+    /* IE6-8 */ url("../fonts/tanha/Tanha.woff") format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url("../fonts/tanha/Tanha.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: "tanha";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/tanha/Tanha.eot");
+  src:
+    url("../fonts/tanha/Tanha.eot?#iefix") format("embedded-opentype"),
+    /* IE6-8 */ url("../fonts/tanha/Tanha.woff") format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url("../fonts/tanha/Tanha.ttf")
+      format("truetype");
+}
+
+* {
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  background: radial-gradient(
+    circle at center,
+
+    #fffaf2 0%,
+
+    #f2dddd 45%,
+
+    #d6b3b3 100%
+  );
+
+  color: #542e35;
+}
+
+/* =========================================
+           MUSIC BUTTON
+        ========================================= */
+
+.music-button {
+  position: fixed;
+
+  top: 25px;
+
+  right: 25px;
+
+  width: 50px;
+
+  height: 50px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #692d3b;
+
+  color: white;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  z-index: 1000;
+
+  transition: 0.3s;
+}
+
+.music-button:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+/* =========================================
+           FLOWER PETALS
+        ========================================= */
+
+.petal {
+  position: fixed;
+
+  top: -50px;
+
+  pointer-events: none;
+
+  z-index: 50;
+
+  animation: falling linear forwards;
+}
+
+@keyframes falling {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(110vh) translateX(180px) rotate(720deg);
+
+    opacity: 0;
+  }
+}
+
+/* =========================================
+           FIRST PAGE
+        ========================================= */
+
+.envelope-page {
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  position: relative;
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+/* =========================================
+           ENVELOPE CONTAINER
+        ========================================= */
+
+.envelope-container {
+  position: relative;
+
+  width: 470px;
+
+  height: 650px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  perspective: 1800px;
+}
+
+/* =========================================
+           ENVELOPE
+        ========================================= */
+
+.envelope {
+  position: absolute;
+
+  width: 470px;
+
+  height: 295px;
+
+  cursor: pointer;
+
+  z-index: 10;
+}
+
+/* =========================================
+           ENVELOPE BODY
+        ========================================= */
+
+.envelope-body {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(135deg, #914555, #4b202b);
+
+  border-radius: 10px;
+
+  box-shadow: 0 35px 70px rgba(62, 25, 31, 0.5);
+
+  overflow: hidden;
+}
+
+.envelope-body::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 13px;
+
+  border: 1px solid rgba(222, 182, 103, 0.7);
+
+  border-radius: 6px;
+}
+
+/* =========================================
+           ENVELOPE FOLDS
+        ========================================= */
+
+.left-fold {
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 0;
+
+  height: 0;
+
+  border-top: 148px solid transparent;
+
+  border-right: 235px solid #74303f;
+
+  border-bottom-left-radius: 8px;
+
+  border-bottom-right-radius: 8px;
+
+  z-index: 3;
+}
+
+.right-fold {
+  position: absolute;
+
+  bottom: 0;
+
+  right: 0;
+
+  width: 0;
+
+  height: 0;
+
+  border-top: 148px solid transparent;
+
+  border-left: 235px solid #5d2634;
+
+  border-bottom-left-radius: 8px;
+
+  border-bottom-right-radius: 8px;
+
+  z-index: 3;
+}
+
+.bottom-fold {
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 0;
+
+  height: 0;
+
+  border-left: 235px solid transparent;
+
+  border-right: 235px solid transparent;
+
+  border-bottom: 170px solid #873b4b;
+
+  border-bottom-left-radius: 8px;
+
+  border-bottom-right-radius: 8px;
+
+  z-index: 4;
+}
+
+/* =========================================
+           3D FLAP
+        ========================================= */
+
+.flap {
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 0;
+
+  height: 0;
+
+  border-left: 235px solid transparent;
+
+  border-right: 235px solid transparent;
+
+  border-top-right-radius: 8px;
+
+  border-top-left-radius: 8px;
+
+  border-top: 170px solid #a85767;
+
+  transform-origin: top center;
+
+  transform-style: preserve-3d;
+
+  transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  z-index: 8;
+}
+
+/* =========================================
+           WAX SEAL
+        ========================================= */
+
+.wax-seal {
+  position: absolute;
+
+  top: 90px;
+
+  left: 50%;
+
+  width: 145px;
+
+  height: 145px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: url("../images/childhood1.jpg");
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  background-size: cover;
+
+  /* background: radial-gradient(
+    circle at 30% 30%,
+
+    #e49ca3,
+    #762438
+  ); */
+
+  /* color: #f5d99e; */
+
+  /* font-size: 30px; */
+
+  /* box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 3px rgba(255, 255, 255, 0.2); */
+
+  z-index: 10;
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+/* =========================================
+           CLICK TEXT
+        ========================================= */
+
+.click-text {
+  position: absolute;
+
+  bottom: -60px;
+
+  width: 100%;
+
+  text-align: center;
+
+  font-family: tanha, sans-serif;
+
+  font-size: 16px;
+
+  color: #713746;
+
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* =========================================
+           OPEN ENVELOPE
+        ========================================= */
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .wax-seal {
+  opacity: 0;
+
+  transform: translateX(-50%) scale(0) rotate(30deg);
+}
+
+.envelope.open .click-text {
+  opacity: 0;
+}
+
+/* =========================================
+           DETAILS / INVITATION PAGE
+        ========================================= */
+
+.details-page {
+  min-height: 100vh;
+
+  padding: 60px 20px;
+
+  display: none;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+}
+
+/* =========================================
+           INVITATION CARD
+        ========================================= */
+
+.invitation-card {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 850px;
+
+  min-height: 900px;
+
+  padding: 40px 40px;
+
+  overflow: hidden;
+
+  background: #fffaf2;
+
+  border: 1px solid #d5b071;
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+           BACKGROUND IMAGE
+        ========================================= */
+
+.invitation-background {
+  position: absolute;
+
+  inset: 0;
+
+  background-image: url("../images/wedding-photo.jpg");
+
+  background-size: cover;
+
+  background-position: top;
+
+  background-repeat: no-repeat;
+
+  opacity: 0.8;
+
+  z-index: 0;
+}
+
+/* =========================================
+           SOFT IMAGE OVERLAY
+        ========================================= */
+
+.invitation-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(255, 250, 242, 0.65);
+
+  z-index: 1;
+}
+
+/* =========================================
+           GOLD INNER BORDER
+        ========================================= */
+
+.invitation-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 18px;
+
+  border: 1px solid #c6a064;
+
+  pointer-events: none;
+
+  z-index: 5;
+}
+
+/* =========================================
+           CONTENT ABOVE IMAGE
+        ========================================= */
+
+.invitation-content {
+  position: relative;
+
+  z-index: 3;
+}
+
+/* =========================================
+           INVITATION TITLE
+        ========================================= */
+
+.invitation-content h1 {
+  font-family: tanha;
+
+  font-size: 32px;
+
+  font-weight: 400;
+
+  color: #873e4e;
+}
+
+.subtitle {
+  margin-top: 10px;
+
+  font-family: tanha;
+
+  font-size: 14px;
+
+  text-transform: uppercase;
+
+  color: #91734f;
+}
+
+.gold-line {
+  width: 100px;
+
+  height: 1px;
+
+  background: #b28a51;
+
+  margin: 30px auto;
+}
+
+/* =========================================
+           NAMES
+        ========================================= */
+
+.names {
+  font-size: 40px;
+
+  line-height: 1;
+
+  color: #773746;
+
+  font-family: tanha;
+}
+
+.and {
+  font-size: 40px;
+
+  color: #b28a51;
+
+  margin: 15px 0;
+}
+
+/* =========================================
+           INVITATION TEXT
+        ========================================= */
+
+.invitation-text {
+  max-width: 600px;
+
+  margin: 28px auto;
+
+  font-family: tanha, serif;
+
+  font-size: 25px;
+
+  line-height: 1.6;
+
+  color: #5e4940;
+}
+
+.wedding-date {
+  margin-top: 30px;
+
+  font-family: tanha, sans-serif;
+
+  font-size: 13px;
+
+  letter-spacing: 3px;
+
+  color: #8a5843;
+}
+
+.location {
+  margin-top: 15px;
+
+  font-family: tanha, serif;
+
+  font-size: 24px;
+
+  color: #62473d;
+}
+
+/* =========================================
+           COUNTDOWN
+        ========================================= */
+
+.countdown {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  margin: 35px 0;
+
+  flex-wrap: wrap;
+}
+
+.countdown-box {
+  min-width: 50px;
+  height: 50px;
+  padding: 18px 12px;
+  background: #702e3d;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.countdown-box span {
+  display: block;
+
+  font-family: tanha, serif;
+
+  font-size: 16px;
+}
+
+.countdown-box small {
+  font-family: tanha, sans-serif;
+  font-size: 10px;
+}
+
+/* =========================================
+           BUTTONS
+        ========================================= */
+
+.action-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  flex-wrap: wrap;
+
+  margin-top: 35px;
+}
+
+.action-button {
+  padding: 15px 28px;
+
+  border: none;
+
+  cursor: pointer;
+
+  font-family: tanha, sans-serif;
+
+  letter-spacing: 1px;
+
+  transition: 0.3s;
+}
+
+.map-button {
+  color: #702e3d;
+  text-decoration: none;
+  font-family: tanha;
+  border-radius: 8px;
+}
+
+.action-button:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+           MOBILE
+        ========================================= */
+
+@media (max-width: 600px) {
+  .envelope-container {
+    width: 298px;
+
+    height: 550px;
+  }
+
+  .envelope {
+    width: 298px;
+
+    height: 225px;
+  }
+
+  .flap {
+    border-left-width: 148px;
+
+    border-right-width: 148px;
+
+    border-top-width: 148px;
+  }
+
+  .left-fold {
+    border-right-width: 175px;
+
+    border-top-width: 112px;
+  }
+
+  .right-fold {
+    border-left-width: 175px;
+
+    border-top-width: 112px;
+  }
+
+  .bottom-fold {
+    border-left-width: 148px;
+
+    border-right-width: 148px;
+
+    border-bottom-width: 148px;
+  }
+
+  .invitation-card {
+    min-height: 850px;
+
+    padding: 32px 20px;
+  }
+
+  .invitation-content h1 {
+    font-size: 20px;
+  }
+
+  .names {
+    font-size: 32px;
+  }
+
+  .and {
+    font-size: 24px;
+  }
+
+  .invitation-text {
+    font-size: 14px;
+    margin: 24px auto;
+  }
+
+  .location {
+    font-size: 20px;
+  }
+
+  .countdown-box {
+    min-width: 40px;
+  }
+
+  .countdown-box span {
+    font-size: 12px;
+  }
+
+  .details-page {
+    padding: 0;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .wax-seal {
+    width: 100px;
+
+    height: 100px;
+
+    top: 60px;
+  }
+}

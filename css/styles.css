@@ -54,17 +54,8 @@ body {
 
   overflow-x: hidden;
 
-  background: radial-gradient(
-    circle at center,
-
-    #fffaf2 0%,
-
-    #f2dddd 45%,
-
-    #d6b3b3 100%
-  );
-
-  color: #542e35;
+  background: linear-gradient(135deg, #f7efe3 0%, #eadcc8 48%, #d8c3a7 100%);
+  color: #000;
 }
 
 /* =========================================
@@ -86,7 +77,7 @@ body {
 
   border-radius: 50%;
 
-  background: #692d3b;
+  background: #000;
 
   color: white;
 
@@ -166,7 +157,7 @@ body {
 
   width: 470px;
 
-  height: 650px;
+  height: 750px;
 
   display: flex;
 
@@ -175,6 +166,16 @@ body {
   align-items: center;
 
   perspective: 1800px;
+
+  background: url("../images/child.jpeg");
+
+  background-repeat: no-repeat;
+
+  background-size: cover;
+
+  background-position: center;
+
+  border-radius: 8px;
 }
 
 /* =========================================
@@ -401,7 +402,7 @@ body {
 
   font-size: 16px;
 
-  color: #713746;
+  color: #000;
 
   animation: pulse 2s infinite;
 }
@@ -582,13 +583,15 @@ body {
         ========================================= */
 
 .names {
-  font-size: 40px;
+  font-size: 32px;
 
-  line-height: 1;
+  line-height: 0.75;
 
   color: #773746;
 
   font-family: tanha;
+
+  margin-bottom: 0.5rem;
 }
 
 .and {
@@ -659,7 +662,7 @@ body {
   min-width: 50px;
   height: 50px;
   padding: 18px 12px;
-  background: #702e3d;
+  background: #bda686;
   color: white;
   display: flex;
   flex-direction: column;
@@ -729,6 +732,10 @@ body {
         ========================================= */
 
 @media (max-width: 600px) {
+  body {
+    min-height: 130vh;
+  }
+
   .envelope-container {
     width: 298px;
 
@@ -780,11 +787,11 @@ body {
   }
 
   .names {
-    font-size: 32px;
+    font-size: 24px;
   }
 
   .and {
-    font-size: 24px;
+    font-size: 16px;
   }
 
   .invitation-text {

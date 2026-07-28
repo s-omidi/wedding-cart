@@ -103,7 +103,7 @@ function createPetals() {
 
       petal.className = "petal";
 
-      const flowers = ["🌸", "🌹", "🌷", "🌺", "✿", "❀"];
+      const flowers = ["🌸", "🌸", "🌸", "🌺", "🌺", "🌺", "✿", "✿", "✿", "❀"];
 
       petal.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
 

@@ -598,6 +598,10 @@ body {
   align-items: center;
 
   justify-content: center;
+
+  direction: rtl;
+
+  text-align: right;
 }
 
 .and {

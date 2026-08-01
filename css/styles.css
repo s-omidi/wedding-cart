@@ -392,7 +392,7 @@ body {
 .click-text {
   position: absolute;
 
-  bottom: -60px;
+  top: 52%;
 
   width: 100%;
 
@@ -400,7 +400,7 @@ body {
 
   font-family: tanha, sans-serif;
 
-  font-size: 16px;
+  font-size: 12px;
 
   color: #000;
 
@@ -487,7 +487,7 @@ body {
 
   inset: 0;
 
-  background-image: url("../images/wedding-photo.jpg");
+  background-image: url("../images/background.jpeg");
 
   background-size: cover;
 
@@ -592,14 +592,20 @@ body {
   font-family: tanha;
 
   margin-bottom: 0.5rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
 }
 
 .and {
-  font-size: 40px;
+  font-size: 28px;
 
   color: #b28a51;
 
-  margin: 15px 0;
+  margin: 8px 16px;
 }
 
 /* =========================================
@@ -630,6 +636,12 @@ body {
   letter-spacing: 3px;
 
   color: #8a5843;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
 }
 
 .location {
@@ -733,19 +745,25 @@ body {
 
 @media (max-width: 600px) {
   body {
-    min-height: 130vh;
+    min-height: unset;
+    height: 100%;
+  }
+
+  .envelope-page {
+    min-height: 100%;
+    height: 100%;
   }
 
   .envelope-container {
-    width: 298px;
-
-    height: 550px;
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
   }
 
   .envelope {
-    width: 298px;
+    width: 100%;
 
-    height: 225px;
+    height: 100vh;
   }
 
   .flap {
@@ -791,7 +809,7 @@ body {
   }
 
   .and {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .invitation-text {
